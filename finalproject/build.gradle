@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+group 'neiu.420.cs'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.11
+
+allprojects {
+    wrapper {gradleVersion ='6.6.1'}}
+
+dependencies {
+    implementation "org.junit.jupiter:junit-jupiter-engine:5.6.2"
+    implementation "org.junit.jupiter:junit-jupiter-api:5.6.2"
+    implementation "org.mockito:mockito-core:3.5.7"
+    implementation "org.mockito:mockito-junit-jupiter:3.5.7"
+    implementation "javax.ws.rs:javax.ws.rs-api:2.1.1"
+    implementation "com.googlecode.json-simple:json-simple:1.1.1"}
