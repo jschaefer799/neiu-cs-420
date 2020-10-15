@@ -1,0 +1,15 @@
+usmanf/DisplayDataApp.java
+ usmanf.DisplayDataApp
+ usmanf.DisplayDataApp$1
+MainApp.java
+ MainApp
+api/Reader.java
+ api.Reader
+usmanf/Date.java
+ usmanf.Date
+filereader/TextScanner.java
+ filereader.TextScanner
+api/Writer.java
+ api.Writer
+api/HttpRequestRetrieval.java
+ api.HttpRequestRetrieval

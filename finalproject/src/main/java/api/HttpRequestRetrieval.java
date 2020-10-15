@@ -9,7 +9,7 @@ import java.net.URL;
 public class HttpRequestRetrieval {
 
     private final String URLBase ="https://api.census.gov/data/timeseries/asm/industry";
-    private final String URLStaticQuery = "?get=NAICS_TTL,EMP,GEO_TTL&for=us:*&time=";
+    private final String URLStaticQuery = "?get=NAICS_TTL,EMP&for=us:*&time=";
     private final String apiKey = "&key=266ae5c42e91514b9076808b0cfa07f79c1dcfdc";
     private HttpURLConnection connection;
     final int connectTimeout = 1000;

@@ -1,5 +1,7 @@
 plugins {
     id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.9'
 }
 
 group 'neiu.420.cs'
@@ -20,4 +22,9 @@ dependencies {
     implementation "org.mockito:mockito-core:3.5.7"
     implementation "org.mockito:mockito-junit-jupiter:3.5.7"
     implementation "javax.ws.rs:javax.ws.rs-api:2.1.1"
-    implementation "com.googlecode.json-simple:json-simple:1.1.1"}
+    implementation "com.googlecode.json-simple:json-simple:1.1.1"
+    testCompile group: 'junit', name: 'junit', version: '4.12'}
+
+javafx {
+    modules =['javafx.controls']}
+mainClassName = 'usmanf.DisplayDataApp'
