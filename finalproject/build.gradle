@@ -27,4 +27,4 @@ dependencies {
 
 javafx {
     modules =['javafx.controls']}
-mainClassName = 'usmanf.DisplayDataApp'
+mainClassName = 'USManufacturingData'

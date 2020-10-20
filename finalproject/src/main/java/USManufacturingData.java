@@ -1,5 +1,3 @@
-package usmanf;
-
 import api.Writer;
 import filereader.TextScanner;
 import javafx.application.Application;
@@ -11,6 +9,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import usmanf.Date;
+import usmanf.EmployeeNumber;
+import usmanf.EmployeeNumberComparator;
+import usmanf.EmployeeNumberUtil;
 
 
 import java.io.IOException;
@@ -19,29 +21,31 @@ import java.nio.file.Path;
 import java.util.List;
 import java.util.Map;
 
-public class DisplayDataApp extends Application {
+public class USManufacturingData extends Application {
     public static void main (String [] args){
         launch(args);
     }
 
     @Override
     public void start(Stage stage) throws IOException, URISyntaxException {
-        final ComboBox<String> categories = new ComboBox<>();
-        categories.setPromptText("--Select a value--");
+        final ComboBox<EmployeeNumber> categories = new ComboBox<>();
+        categories.setPromptText("--Select a Population Size--");
 
         final ComboBox<Date> dates = new ComboBox<>();
+        dates.setPromptText("---Select a Value---");
         dates.setVisible(false);
 
         TextScanner ts = new TextScanner();
         Path path = ts.getOutputPath();
         ts.getText(path);
-        Map<String, List<Date>> dateMap = Date.getDateMap(ts.getDates());
-        ObservableList<String> dateRanges = FXCollections.observableArrayList(dateMap.keySet());
+        Map<EmployeeNumber, List<Date>> dateMap = EmployeeNumberUtil.getDateMap(ts.getDates());
+        ObservableList<EmployeeNumber> dateRanges = FXCollections.observableArrayList(dateMap.keySet());
+        dateRanges.sort(new EmployeeNumberComparator());
         categories.getItems().addAll(dateRanges);
 
-        categories.valueProperty().addListener(new ChangeListener<String>(){
+        categories.valueProperty().addListener(new ChangeListener<EmployeeNumber>(){
             @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+            public void changed(ObservableValue<? extends EmployeeNumber> observable, EmployeeNumber oldValue, EmployeeNumber newValue) {
 
                 dates.getItems().clear();
                 dates.getItems().addAll(dateMap.get(newValue));

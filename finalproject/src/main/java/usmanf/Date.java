@@ -68,29 +68,7 @@ public class Date {
     }
 
 
-    public static Map<String, List<Date>> getDateMap(List<Date> dates){
-        Map<String, List<Date>> grouped = new HashMap<>();
-        for (Date d: dates){
-            if (d.getTotalJobs() <= 100000)
-                addToMap("Less than 100,000 jobs", d, grouped);
-            else if( d.getTotalJobs() <= 125000)
-                addToMap("Less than 125,000 jobs", d, grouped);
-            else if (d.getTotalJobs() <= 175000)
-                addToMap("Less than 175,000", d, grouped);
-            else if (d.getTotalJobs() <= 200000)
-                addToMap("Less than 200,000 jobs", d, grouped);
-            else if (d.getTotalJobs() > 200000)
-                addToMap("More than 200,000 jobs", d, grouped);
-        }
-        return grouped;
-    }
 
-    private static void addToMap(String key, Date date, Map<String, List<Date>> map){
-        if (!map.containsKey(key))
-            map.put(key, new ArrayList<>(Arrays.asList(date)));
-        else
-            map.get(key).add(date);
-    }
 
 
 
