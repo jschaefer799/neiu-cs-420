@@ -5,7 +5,6 @@ package filereader;
 import usmanf.Date;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
@@ -17,11 +16,10 @@ import java.util.Scanner;
 
 public class TextScanner {
 
-    private int count = 0;
     private List<Date> dates;
     private final int LINE_SIZE = 10;
 
-    public TextScanner() throws IOException, URISyntaxException {
+    public TextScanner() {
         this.dates = new ArrayList<>();
 
 
@@ -42,13 +40,11 @@ public class TextScanner {
         }
     }
 
-    public Path getOutputPath () throws IOException, URISyntaxException {
+    public Path getOutputPath () throws URISyntaxException {
         Path outputPath;
         String dir = ClassLoader.getSystemClassLoader().getResource("").toURI().getPath();
         String path = dir.substring(0, dir.indexOf("classes")) + File.separator + "resources";
-        File dirs = new File(path);
-        if (!dirs.exists())
-            dirs.mkdirs();
+
         path += File.separator + "output.txt";
         outputPath = Paths.get(path);
         return outputPath;
