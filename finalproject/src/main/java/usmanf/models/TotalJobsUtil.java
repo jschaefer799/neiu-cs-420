@@ -1,17 +1,17 @@
-package usmanf;
+package usmanf.models;
 
 import java.util.*;
 
-public class EmployeeNumberUtil {
+public class TotalJobsUtil {
 
-    private EmployeeNumberUtil(){
+    private TotalJobsUtil(){
 
     }
 
-    public static Map<EmployeeNumber, List<Date>> getDateMap(List<Date> dates){
-        Map<EmployeeNumber, List<Date>> grouped = new HashMap<>();
-        for (Date d: dates){
-            for (EmployeeNumber populationCategory: EmployeeNumber.values()){
+    public static Map<TotalJobs, List<CustomDate>> getDateMap(List<CustomDate> dates){
+        Map<TotalJobs, List<CustomDate>> grouped = new HashMap<>();
+        for (CustomDate d: dates){
+            for (TotalJobs populationCategory: TotalJobs.values()){
                 if (d.getTotalJobs() >= populationCategory.getMin() && d.getTotalJobs() <= populationCategory.getMax()){
                     addToMap(populationCategory, d, grouped);
                 }
@@ -20,7 +20,7 @@ public class EmployeeNumberUtil {
         return grouped;
     }
 
-    private static void addToMap(EmployeeNumber key, Date date, Map<EmployeeNumber, List<Date>> map){
+    private static void addToMap(TotalJobs key, CustomDate date, Map<TotalJobs, List<CustomDate>> map){
         if (!map.containsKey(key))
             map.put(key, new ArrayList<>(Arrays.asList(date)));
         else

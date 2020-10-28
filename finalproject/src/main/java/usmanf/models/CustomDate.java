@@ -1,11 +1,11 @@
-package usmanf;
+package usmanf.models;
 
 
 import java.util.*;
 
 
 
-public class Date {
+public class CustomDate {
 
     private int year;
     private int nacisCode;
@@ -14,7 +14,7 @@ public class Date {
     private int count = 0;
     private String [][] finalArray = new String[60][4];
 
-    public Date(String industryName,int totalJobs, int year, int nacisCode){
+    public CustomDate(String industryName, int totalJobs, int year, int nacisCode){
         this.year = year;
         this.nacisCode = nacisCode;
         this.industryName = industryName;
@@ -40,7 +40,7 @@ public class Date {
 
     @Override
     public String toString(){
-        return "Date{" +
+        return "CustomDate{" +
                 "year=" + year +
                 ", industry name='" + industryName + '\'' +
                 ", NACIS code=" + nacisCode +
@@ -52,9 +52,9 @@ public class Date {
     public boolean equals(Object o){
         if (this == o)
             return true;
-        if (!(o instanceof Date))
+        if (!(o instanceof CustomDate))
             return false;
-        Date date = (Date) o;
+        CustomDate date = (CustomDate) o;
         return year == date.year &&
                 nacisCode == date.nacisCode &&
                 totalJobs == date.totalJobs &&

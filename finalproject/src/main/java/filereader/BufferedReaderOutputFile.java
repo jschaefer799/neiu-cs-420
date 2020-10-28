@@ -2,42 +2,41 @@ package filereader;
 
 
 
-import usmanf.Date;
+import usmanf.models.CustomDate;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.net.URISyntaxException;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
-public class TextScanner {
 
-    private List<Date> dates;
+public class BufferedReaderOutputFile {
+
+    private List<CustomDate> dates;
     private final int LINE_SIZE = 10;
 
-    public TextScanner() {
+    public BufferedReaderOutputFile() {
         this.dates = new ArrayList<>();
 
 
     }
 
-    public void getText(Path path) throws IOException {
+    public void bufferedReaderOutput(Path path) throws IOException {
         String [] data = new String[LINE_SIZE];
-        File file = new File (String.valueOf(path));
-        Scanner scanner = new Scanner(file, StandardCharsets.UTF_8);
         String temp = "[\"]";
         String tempData = "";
-        while (scanner.hasNextLine()){
-            tempData = scanner.nextLine();
+        FileReader fileReader = new FileReader(String.valueOf(path));
+        final BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+        while ((tempData = bufferedReader.readLine()) != null) {
             data = tempData.split(temp);
-            dates.add(new Date(data[1], Integer.parseInt(data[3]), Integer.parseInt(data[5]), Integer.parseInt(data[7])));
-            //updateFinalArray(data);
-             //1,3,5,7,
+            dates.add(new CustomDate(data[1], Integer.parseInt(data[3]), Integer.parseInt(data[5]), Integer.parseInt(data[7])));
         }
+
+        bufferedReader.close();
+        fileReader.close();
     }
 
     public Path getOutputPath () throws URISyntaxException {
@@ -51,7 +50,7 @@ public class TextScanner {
 
     }
 
-    public List<Date> getDates() {
+    public List<CustomDate> getDates() {
 
         return this.dates;
     }

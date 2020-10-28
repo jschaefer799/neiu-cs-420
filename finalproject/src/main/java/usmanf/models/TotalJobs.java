@@ -1,6 +1,6 @@
-package usmanf;
+package usmanf.models;
 
-public enum EmployeeNumber {
+public enum TotalJobs {
     XSMALL(0, 100000),
     SMALL (100001, 125000),
     MEDIUM (125001, 175000),
@@ -10,7 +10,7 @@ public enum EmployeeNumber {
     private final int min;
     private final int max;
 
-    EmployeeNumber(int min, int max){
+    TotalJobs(int min, int max){
         this.min = min;
         this.max = max;
     }

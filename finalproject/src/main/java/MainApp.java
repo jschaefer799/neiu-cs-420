@@ -1,11 +1,9 @@
 import api.HttpRequestRetrieval;
 import api.Reader;
 import api.Writer;
-import filereader.TextScanner;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.nio.file.Path;
 
 public class MainApp {
     public static void main(String[] args) throws IOException, URISyntaxException {
