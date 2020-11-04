@@ -3,9 +3,6 @@ filereader/BufferedReaderOutputFile.java
 usmanf/views/ComboBoxDisplays.java
  usmanf.views.ComboBoxDisplays
  usmanf.views.ComboBoxDisplays$1
- usmanf.views.ComboBoxDisplays$2
- usmanf.views.ComboBoxDisplays$3
- usmanf.views.ComboBoxDisplays$4
  usmanf.views.ComboBoxDisplays$DatesStringConverter
 usmanf/models/TotalJobs.java
  usmanf.models.TotalJobs
