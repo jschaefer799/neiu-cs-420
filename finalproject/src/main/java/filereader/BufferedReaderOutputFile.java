@@ -20,7 +20,6 @@ public class BufferedReaderOutputFile {
     public BufferedReaderOutputFile() {
         this.dates = new ArrayList<>();
 
-
     }
 
     public void bufferedReaderOutput(Path path) throws IOException {

@@ -11,6 +11,7 @@ public class TotalJobsUtil {
     public static Map<TotalJobs, List<CustomDate>> getDateMap(List<CustomDate> dates){
         Map<TotalJobs, List<CustomDate>> grouped = new HashMap<>();
         dates.forEach(d -> placeValuesInDatesCategories(grouped, d));
+        //System.out.println(Arrays.asList(grouped));
         return grouped;
     }
 

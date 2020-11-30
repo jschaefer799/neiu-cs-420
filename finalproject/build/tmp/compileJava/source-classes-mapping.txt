@@ -1,3 +1,13 @@
+usmanf/views/JobsByYearPieChart.java
+ usmanf.views.JobsByYearPieChart
+usmanf/views/JobsByNacisCodeBarGraph.java
+ usmanf.views.JobsByNacisCodeBarGraph
+api/Reader.java
+ api.Reader
+usmanf/views/SubmitButton.java
+ usmanf.views.SubmitButton
+api/Writer.java
+ api.Writer
 filereader/BufferedReaderOutputFile.java
  filereader.BufferedReaderOutputFile
 usmanf/views/ComboBoxDisplays.java
@@ -8,14 +18,16 @@ usmanf/models/TotalJobs.java
  usmanf.models.TotalJobs
 MainApp.java
  MainApp
-api/Reader.java
- api.Reader
+usmanf/views/JobsByYearBarGraph.java
+ usmanf.views.JobsByYearBarGraph
+usmanf/views/ChartData.java
+ usmanf.views.ChartData
 usmanf/models/TotalJobsUtil.java
  usmanf.models.TotalJobsUtil
-api/Writer.java
- api.Writer
 api/HttpRequestRetrieval.java
  api.HttpRequestRetrieval
+usmanf/views/RadioButtons.java
+ usmanf.views.RadioButtons
 USManufacturingData.java
  USManufacturingData
 usmanf/models/CustomDate.java

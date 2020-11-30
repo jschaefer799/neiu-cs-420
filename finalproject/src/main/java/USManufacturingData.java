@@ -8,7 +8,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import usmanf.models.CustomDate;
 import usmanf.models.TotalJobs;
-import usmanf.views.ComboBoxDisplays;
+import usmanf.views.*;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -24,14 +24,28 @@ public class USManufacturingData extends Application {
 
     @Override
     public void start(Stage stage) throws IOException, URISyntaxException {
-        comboBoxes = new ComboBoxDisplays();
-        BorderPane borderPane = new BorderPane();
-        setUpBorderPane(borderPane);
 
-        Scene scene = new Scene(borderPane, 600, 200);
-        stage.setTitle("U.S. Manufacturing");
-        stage.setScene(scene);
+        RadioButtons radioButton = new RadioButtons();
+        HBox hBox = radioButton.getVBox();
+        hBox.setSpacing(10);
+        BorderPane borderPane = radioButton.getBorderPane();
+
+        Scene scene2 = new Scene (borderPane,1000, 1000);
+        stage.setTitle("U.S. Manufacturing Radio Buttons");
+        stage.setScene(scene2);
         stage.show();
+
+        Stage secondStage = new Stage();
+        secondStage.setTitle("Combobox");
+        comboBoxes = new ComboBoxDisplays();
+
+        BorderPane borderPane2 = new BorderPane();
+        setUpBorderPane(borderPane2);
+
+        Scene scene1 = new Scene(borderPane2, 800, 300);
+        secondStage.setScene(scene1);
+        secondStage.show();
+
     }
 
     private void setUpBorderPane (BorderPane borderPane){

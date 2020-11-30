@@ -15,6 +15,7 @@ import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
@@ -54,14 +55,13 @@ public class ComboBoxDisplays {
         public CustomDate fromString(String string) {
             int nacisCode = Integer.parseInt(string.split(SEP)[2]);
             BufferedReaderOutputFile bufferedReaderOutputFile = new BufferedReaderOutputFile();
-            for (CustomDate dates: bufferedReaderOutputFile.getDates()){
-                if (dates.getNacisCode() == nacisCode)
-                    return dates;
-            }
-            return null;
+            List <CustomDate> customDateList = bufferedReaderOutputFile.getDates().stream()
+                                                                                    .filter(dates -> dates.getNacisCode() == nacisCode)
+                                                                                    .limit(1)
+                                                                                    .collect(Collectors.toList());
+            return customDateList.isEmpty() ? null : customDateList.get(0);
+
         }
-
-
     }
 
     private ObservableList<TotalJobs> sortTotals(){
