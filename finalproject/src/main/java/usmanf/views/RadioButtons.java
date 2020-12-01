@@ -3,6 +3,7 @@ package usmanf.views;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -37,26 +38,27 @@ public class RadioButtons {
     private void createAndAddRadioButtons() {
 
 
-        javafx.scene.control.RadioButton rb1 = new javafx.scene.control.RadioButton("Pie Chart: Year");
+        RadioButton rb1 = new javafx.scene.control.RadioButton("Pie Chart: Year");
         rb1.setToggleGroup(toggleGroup);
         rb1.setUserData("Pie Chart: Year");
 
-        javafx.scene.control.RadioButton rb2 = new javafx.scene.control.RadioButton("Bar Chart: Year");
+        RadioButton rb2 = new javafx.scene.control.RadioButton("Bar Chart: Year");
         rb2.setToggleGroup(toggleGroup);
         rb2.setUserData("Bar Chart: Year");
 
-        javafx.scene.control.RadioButton rb3 = new javafx.scene.control.RadioButton("Bar Chart: NACIS Code");
+        RadioButton rb3 = new javafx.scene.control.RadioButton("Bar Chart: NACIS Code");
         rb3.setToggleGroup(toggleGroup);
         rb3.setUserData("Bar Chart: NACIS Code");
 
         hBox.getChildren().addAll(label,rb1,rb2,rb3,submitButton.getButton());
-        borderPane.setBottom(hBox);
+        borderPane.setTop(hBox);
 
 
         submitButton.getButton().setOnAction(e-> {
             if (rb1.isSelected()) {
                 rb1.setGraphic(pieChart);
                 borderPane.setCenter(rb1);
+
             }
             if (rb2.isSelected()) {
                 rb2.setGraphic(barChart1);

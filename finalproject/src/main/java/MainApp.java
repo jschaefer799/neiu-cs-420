@@ -12,7 +12,7 @@ public class MainApp {
 
         String [] URLList;
         String [] data = new String [60];
-
+System.out.println("run");
 
 
         try {
@@ -29,9 +29,7 @@ public class MainApp {
                     data[i] = newData.bufferedReader(req.getConnection(), URLList[i]);
                 }
             }
-
             writeToFile.writer(data);
-
         }
         catch (Exception e){
             System.out.println(e.toString());
