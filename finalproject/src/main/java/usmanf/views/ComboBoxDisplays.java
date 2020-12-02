@@ -1,8 +1,11 @@
 package usmanf.views;
 
 import javafx.collections.ObservableList;
+import javafx.geometry.Insets;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListCell;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.util.StringConverter;
 import usmanf.models.CustomDate;
@@ -27,7 +30,8 @@ public class ComboBoxDisplays {
     private final ObservableList<TotalJobs> totals;
     private final Text textBox;
     BufferedReaderOutputFile bufferedReaderOutputFile = new BufferedReaderOutputFile();
-
+    BorderPane borderPane;
+    HBox hBox;
 
     public ComboBoxDisplays() throws URISyntaxException, IOException {
         Path path = bufferedReaderOutputFile.getOutputPath();
@@ -36,8 +40,11 @@ public class ComboBoxDisplays {
         datesMap = getDateMap(datesList);
         totals = observableArrayList(datesMap.keySet());
         textBox = new Text();
+        hBox = new HBox();
+        borderPane = new BorderPane();
         setUpCategories();
         setUpDates();
+        setUpBorderPane();
     }
 
     private static class DatesStringConverter extends StringConverter<CustomDate> {
@@ -77,7 +84,7 @@ public class ComboBoxDisplays {
 
     private void setUpDates(){
         dates = new ComboBox<>();
-        dates.setPromptText("--Select a Value--");
+        dates.setPromptText("--Select a Year and NACIS Code--");
         dates.setConverter(new DatesStringConverter());
         dates.setVisible(false);
         createDatesSelectionListener();
@@ -116,13 +123,25 @@ public class ComboBoxDisplays {
     private void setUpCategories(){
         categories = new ComboBox<>();
         categories.getItems().addAll(sortTotals());
-        categories.setPromptText("--Select a Value--");
+        categories.setPromptText("--Select a Size of Total Jobs--");
         categories.valueProperty().addListener((observable, oldValue, newValue) -> {
             textBox.setVisible(false);
             dates.getItems().clear();
             dates.getItems().addAll(datesMap.get(newValue));
             dates.setVisible(true);
         });
+    }
+    private void setUpBorderPane (){
+        setUpHBox(hBox);
+        borderPane.setTop(hBox);
+    }
+
+    private void setUpHBox (HBox hBox){
+        hBox.setSpacing(10);
+        hBox.getChildren().addAll(categories, dates, textBox);
+        HBox.setMargin(categories, new Insets(20, 5, 5, 20));
+        HBox.setMargin(dates, new Insets(20, 5, 5, 20));
+        HBox.setMargin(textBox, new Insets(20, 5, 5, 20));
     }
 
     public ComboBox<TotalJobs> getCategories(){
@@ -135,5 +154,9 @@ public class ComboBoxDisplays {
 
     public Text getTextBox(){
         return textBox;
+    }
+
+    public BorderPane getBorderPane(){
+        return borderPane;
     }
 }

@@ -6,18 +6,18 @@ api/Reader.java
  api.Reader
 usmanf/views/SubmitButton.java
  usmanf.views.SubmitButton
+usmanf/views/JobsLineChart.java
+ usmanf.views.JobsLineChart
 api/Writer.java
  api.Writer
 filereader/BufferedReaderOutputFile.java
  filereader.BufferedReaderOutputFile
+usmanf/models/TotalJobs.java
+ usmanf.models.TotalJobs
 usmanf/views/ComboBoxDisplays.java
  usmanf.views.ComboBoxDisplays
  usmanf.views.ComboBoxDisplays$1
  usmanf.views.ComboBoxDisplays$DatesStringConverter
-usmanf/models/TotalJobs.java
- usmanf.models.TotalJobs
-MainApp.java
- MainApp
 usmanf/views/JobsByYearBarGraph.java
  usmanf.views.JobsByYearBarGraph
 usmanf/views/ChartData.java

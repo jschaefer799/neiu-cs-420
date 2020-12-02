@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class ChartData {
 
@@ -39,8 +41,9 @@ public class ChartData {
     public List<Integer> getTotalNumberOfJobsByNacisCode() {
         List<Integer> totalJobs = new ArrayList<>();
 
-        Arrays.asList(311,312,313,314).forEach(nacisCode -> {
-            totalJobs.add(customDateList.stream().filter(customDate -> {
+        Arrays.asList(311,315,331,336).forEach(nacisCode -> {
+            totalJobs.add(customDateList.stream()
+                    .filter(customDate -> {
                 return customDate.getNacisCode() == nacisCode;
 
             }).map(customDate -> customDate.getTotalJobs()).reduce((subtotal, value) -> subtotal+value).get());
@@ -48,4 +51,18 @@ public class ChartData {
         });
         return totalJobs;
     }
+
+    public List<Integer> getTotalJobsByOneNacisCode(int nacisCode){
+        List<CustomDate> test = customDateList.stream()
+                .filter(nacis -> nacis.getNacisCode() == nacisCode)
+                .sorted(Comparator.comparingInt(CustomDate::getYear))
+                .collect(Collectors.toList());
+
+        List<Integer> data = test.stream()
+                .map(jobs -> jobs.getTotalJobs())
+                .collect(Collectors.toList());
+
+        return data;
+    }
+
 }

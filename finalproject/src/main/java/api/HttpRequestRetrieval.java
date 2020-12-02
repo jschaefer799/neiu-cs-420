@@ -27,10 +27,16 @@ public class HttpRequestRetrieval {
         //iterate through years
         for (int i = 2002; i <= 2016; i++){
             //iterate through NAICS codes
-            for (int j = 311; j <= 314; j++){
-                this.listOfURLs[count] = URLBase + URLStaticQuery + i + "&NAICS=" + j + this.apiKey;
+
+                this.listOfURLs[count] = URLBase + URLStaticQuery + i + "&NAICS=" + "311" + this.apiKey;
+            count++;
+                this.listOfURLs[count] = URLBase + URLStaticQuery + i + "&NAICS=" + "315" + this.apiKey;
+            count++;
+                this.listOfURLs[count] = URLBase + URLStaticQuery + i + "&NAICS=" + "331" + this.apiKey;
+            count++;
+                this.listOfURLs[count] = URLBase + URLStaticQuery + i + "&NAICS=" + "336" + this.apiKey;
                 count++;
-            }
+
         }
         return this.listOfURLs;
     }

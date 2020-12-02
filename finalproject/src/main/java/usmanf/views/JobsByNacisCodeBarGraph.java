@@ -10,18 +10,21 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 public class JobsByNacisCodeBarGraph {
-    private final CategoryAxis xAxis = new CategoryAxis();
-    private final NumberAxis yAxis = new NumberAxis();
-    private final BarChart<String,Number> barChart = new BarChart <String, Number>(xAxis,yAxis);
-    XYChart.Series <String,Number> series = new XYChart.Series<String,Number>();
-
+    private final CategoryAxis xAxis;
+    private final NumberAxis yAxis;
+    private final BarChart<String, Number> barChart;
+    XYChart.Series<String, Number> series;
 
 
     public JobsByNacisCodeBarGraph() throws IOException, URISyntaxException {
-
-        getBarChart();
+        xAxis = new CategoryAxis();
+        yAxis = new NumberAxis();
+        barChart = new BarChart<String, Number>(xAxis, yAxis);
+        series = new XYChart.Series<String, Number>();
+        setupBarChartNacisCode();
     }
-    public BarChart<String,Number> getBarChart () throws IOException, URISyntaxException {
+
+    public BarChart<String, Number> setupBarChartNacisCode() throws IOException, URISyntaxException {
         ChartData chartData = new ChartData();
         List<Integer> jobData = chartData.getTotalNumberOfJobsByNacisCode();
 
@@ -29,10 +32,10 @@ public class JobsByNacisCodeBarGraph {
         xAxis.setLabel("NACIS Code");
         yAxis.setLabel("Number of Jobs");
 
-        createBarChart("311",jobData.get(0));
-        createBarChart("312",jobData.get(1));
-        createBarChart("313",jobData.get(2));
-        createBarChart("314",jobData.get(3));
+        createBarChartByNacisCode("311", jobData.get(0));
+        createBarChartByNacisCode("312", jobData.get(1));
+        createBarChartByNacisCode("313", jobData.get(2));
+        createBarChartByNacisCode("314", jobData.get(3));
 
         series.setName("Total Number of Jobs");
         barChart.getData().add(series);
@@ -40,8 +43,13 @@ public class JobsByNacisCodeBarGraph {
         return barChart;
 
     }
-    private void createBarChart(String year, int totalJobs){
-        series.getData().add(new XYChart.Data<String,Number>(year,totalJobs));
+
+    private void createBarChartByNacisCode(String nacisCode, int totalJobs) {
+        series.getData().add(new XYChart.Data<String, Number>(nacisCode, totalJobs));
     }
 
+    public BarChart<String, Number> getBarChartByNacisCode(){
+        return barChart;
+
+    }
 }

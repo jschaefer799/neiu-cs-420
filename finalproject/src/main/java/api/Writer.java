@@ -23,7 +23,6 @@ public class Writer {
         path += File.separator + "output.txt";
         FileWriter APIWriter = new FileWriter(path);
 
-
         for (int i = 0; i < output.length; i++)
             APIWriter.write(output[i] + "\n");
         APIWriter.close();
