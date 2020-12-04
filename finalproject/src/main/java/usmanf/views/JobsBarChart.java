@@ -6,26 +6,25 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.*;
 
-public class JobsByYearBarGraph {
+public class JobsBarChart {
 
     private final CategoryAxis xAxis;
     private final NumberAxis yAxis;
     private final BarChart<String, Number> barChart;
     XYChart.Series<String, Number> series;
 
-    public JobsByYearBarGraph() throws IOException, URISyntaxException {
+    public JobsBarChart() throws IOException, URISyntaxException {
         xAxis = new CategoryAxis();
         yAxis = new NumberAxis();
-        barChart = new BarChart<String, Number>(xAxis, yAxis);
-        series = new XYChart.Series<String, Number>();
+        barChart = new BarChart<>(xAxis, yAxis);
+        series = new XYChart.Series<>();
         setupBarChartByYear();
     }
 
     public void setupBarChartByYear() throws IOException, URISyntaxException {
         ChartData chartData = new ChartData();
-        //List<Integer> jobData = chartData.getTotalNumberOfJobs();
         List<Integer> jobData = chartData.getTotalJobsByOneNacisCode(336);
-        barChart.setTitle("U.S. Manufacturing Jobs 2002-2016");
+        barChart.setTitle("U.S. Manufacturing Total Combined Jobs for Sub-Sectors 311, 315, 331 and 336 for 2002-2016");
         xAxis.setLabel("Year");
         yAxis.setLabel("Number of Jobs");
 
@@ -51,9 +50,7 @@ public class JobsByYearBarGraph {
     }
 
     private void createBarChartByYear(String year, int totalJobs) {
-        series.getData().add(new XYChart.Data<String, Number>(year, totalJobs));
-
-
+        series.getData().add(new XYChart.Data<>(year, totalJobs));
     }
 
     public BarChart<String, Number> getBarChartByYear() {

@@ -29,11 +29,12 @@ public class ComboBoxDisplays {
     private final Map<TotalJobs, List<CustomDate>> datesMap;
     private final ObservableList<TotalJobs> totals;
     private final Text textBox;
-    BufferedReaderOutputFile bufferedReaderOutputFile = new BufferedReaderOutputFile();
+    BufferedReaderOutputFile bufferedReaderOutputFile;
     BorderPane borderPane;
     HBox hBox;
 
     public ComboBoxDisplays() throws URISyntaxException, IOException {
+        bufferedReaderOutputFile = new BufferedReaderOutputFile();
         Path path = bufferedReaderOutputFile.getOutputPath();
         bufferedReaderOutputFile.bufferedReaderOutput(path);
         List<CustomDate> datesList = bufferedReaderOutputFile.getDates();
@@ -142,18 +143,6 @@ public class ComboBoxDisplays {
         HBox.setMargin(categories, new Insets(20, 5, 5, 20));
         HBox.setMargin(dates, new Insets(20, 5, 5, 20));
         HBox.setMargin(textBox, new Insets(20, 5, 5, 20));
-    }
-
-    public ComboBox<TotalJobs> getCategories(){
-        return categories;
-    }
-
-    public ComboBox<CustomDate> getDates(){
-        return dates;
-    }
-
-    public Text getTextBox(){
-        return textBox;
     }
 
     public BorderPane getBorderPane(){

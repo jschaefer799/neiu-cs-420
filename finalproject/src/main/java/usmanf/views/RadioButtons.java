@@ -17,31 +17,29 @@ public class RadioButtons {
 
     HBox hBox;
     ToggleGroup toggleGroup;
-    JobsByYearPieChart numberJobsPieChart;
+    JobsPieChart numberJobsPieChart;
     PieChart pieChart;
 
-    JobsByYearBarGraph numberJobsBarGraph;
-    BarChart barChart1;
+    JobsBarChart numberJobsBarGraph;
+    BarChart<String, Number> barChart1;
 
     JobsLineChart jobsLineChart;
-    LineChart lineChart;
+    LineChart<String, Number> lineChart;
 
     BorderPane borderPane;
     Label label;
 
-    SubmitButton submitButton = new SubmitButton();
+    SubmitButton submitButton;
 
     public RadioButtons() throws IOException, URISyntaxException {
         hBox = new HBox();
         toggleGroup = new ToggleGroup();
-        numberJobsPieChart = new JobsByYearPieChart();
-
-        numberJobsBarGraph = new JobsByYearBarGraph();
-
+        numberJobsPieChart = new JobsPieChart();
+        numberJobsBarGraph = new JobsBarChart();
         jobsLineChart = new JobsLineChart();
-
         borderPane = new BorderPane();
         label = new Label("View Total Jobs By: ");
+        submitButton = new SubmitButton();
 
         createAndAddRadioButtons();
         pieChart = numberJobsPieChart.getPieChart();
@@ -58,9 +56,9 @@ public class RadioButtons {
         rb2.setToggleGroup(toggleGroup);
         rb2.setUserData("Bar Chart: Year");
 
-        RadioButton rb3 = new javafx.scene.control.RadioButton("Line Chart: NACIS Code Total Jobs By Year");
+        RadioButton rb3 = new javafx.scene.control.RadioButton("Year: Line Chart");
         rb3.setToggleGroup(toggleGroup);
-        rb3.setUserData("Line Chart: NACIS Code Total Jobs By Year");
+        rb3.setUserData("Year: Line Chart");
 
         hBox.getChildren().addAll(label,rb1,rb2,rb3,submitButton.getButton());
         hBox.setSpacing(10);
@@ -91,7 +89,4 @@ public class RadioButtons {
         return borderPane;
     }
 
-    public HBox getVBox(){
-        return hBox;
-    }
 }

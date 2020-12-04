@@ -8,7 +8,6 @@ import javafx.stage.Stage;
 import usmanf.views.*;
 
 import java.io.File;
-import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -52,33 +51,29 @@ public class USManufacturingData extends Application {
     }
 
     @Override
-    public void start(Stage stage) throws IOException, URISyntaxException {
-    try {
-//        ChartData chartData = new ChartData();
-//        chartData.getTotalJobsByOneNacisCode(336);
+    public void start(Stage stage){
+        try {
+            RadioButtons radioButton = new RadioButtons();
+            BorderPane borderPane = radioButton.getBorderPane();
 
+            Scene scene2 = new Scene(borderPane, 1000, 1000);
+            stage.setTitle("U.S. Manufacturing Sub-Sectors: 311, 315, 331 and 336");
+            stage.setScene(scene2);
+            stage.show();
 
-        RadioButtons radioButton = new RadioButtons();
-        BorderPane borderPane = radioButton.getBorderPane();
+            ////////
+            Stage secondStage = new Stage();
+            secondStage.setTitle("U.S. Manufacturing Sub-Sectors: 311, 315, 331 and 336");
 
-        Scene scene2 = new Scene(borderPane, 1000, 1000);
-        stage.setTitle("U.S. Manufacturing Radio Buttons");
-        stage.setScene(scene2);
-        stage.show();
-
-        ////////
-        Stage secondStage = new Stage();
-        secondStage.setTitle("Combobox");
-
-        ComboBoxDisplays comboBoxDisplays = new ComboBoxDisplays();
-        BorderPane borderPane2 = comboBoxDisplays.getBorderPane();
-        Scene scene1 = new Scene(borderPane2, 800, 300);
-        secondStage.setScene(scene1);
-        secondStage.show();
-    }
-    catch(Exception e){
-        System.out.println(e.toString());
-    }
+            ComboBoxDisplays comboBoxDisplays = new ComboBoxDisplays();
+            BorderPane borderPane2 = comboBoxDisplays.getBorderPane();
+            Scene scene1 = new Scene(borderPane2, 900, 400);
+            secondStage.setScene(scene1);
+            secondStage.show();
+        }
+        catch(Exception e){
+            System.out.println(e.toString());
+        }
     }
 }
 

@@ -8,24 +8,25 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.List;
 
-public class JobsByYearPieChart {
+public class JobsPieChart {
 
-    private PieChart pieChart;
+    PieChart pieChart;
 
-    public JobsByYearPieChart() {
-        this.pieChart = new PieChart();
+    public JobsPieChart() {
+        pieChart = new PieChart();
     }
 
     public PieChart getPieChart () throws IOException, URISyntaxException {
         ChartData chartData = new ChartData();
         List<Integer> jobData = chartData.getTotalNumberOfJobsByNacisCode();
+        pieChart.setTitle("U.S. Manufacturing Total Jobs for Sub-Sectors 311, 315, 331 and 336 for 2002-2016");
 
         ObservableList<PieChart.Data> pieChartData =
                 FXCollections.observableArrayList(
-                      new PieChart.Data("311", jobData.get(0)),
-                        new PieChart.Data("315", jobData.get(1)),
-                        new PieChart.Data("331", jobData.get(2)),
-                        new PieChart.Data("336", jobData.get(3)));
+                      new PieChart.Data("311: Food Manufacturing", jobData.get(0)),
+                        new PieChart.Data("315: Apparel Manufacturing", jobData.get(1)),
+                        new PieChart.Data("331: Primary Metal Manufacturing", jobData.get(2)),
+                        new PieChart.Data("336: Transportation Equipment Manufacturing", jobData.get(3)));
 
         PieChart chart = new PieChart(pieChartData);
         chart.setTitle("Total Jobs in U.S. Manufacturing Industry 2002-2006");

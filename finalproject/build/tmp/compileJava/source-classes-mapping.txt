@@ -1,7 +1,3 @@
-usmanf/views/JobsByYearPieChart.java
- usmanf.views.JobsByYearPieChart
-usmanf/views/JobsByNacisCodeBarGraph.java
- usmanf.views.JobsByNacisCodeBarGraph
 api/Reader.java
  api.Reader
 usmanf/views/SubmitButton.java
@@ -18,10 +14,12 @@ usmanf/views/ComboBoxDisplays.java
  usmanf.views.ComboBoxDisplays
  usmanf.views.ComboBoxDisplays$1
  usmanf.views.ComboBoxDisplays$DatesStringConverter
-usmanf/views/JobsByYearBarGraph.java
- usmanf.views.JobsByYearBarGraph
+usmanf/views/JobsBarChart.java
+ usmanf.views.JobsBarChart
 usmanf/views/ChartData.java
  usmanf.views.ChartData
+usmanf/views/JobsPieChart.java
+ usmanf.views.JobsPieChart
 usmanf/models/TotalJobsUtil.java
  usmanf.models.TotalJobsUtil
 api/HttpRequestRetrieval.java

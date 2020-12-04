@@ -3,9 +3,11 @@ package usmanf.views;
 import javafx.scene.control.Button;
 
 public class SubmitButton {
-        Button submitButton = new Button("Submit");
+        Button submitButton;
 
-        public SubmitButton(){}
+        public SubmitButton(){
+            submitButton = new Button("Submit");
+        }
 
         public Button getButton(){
             return submitButton;

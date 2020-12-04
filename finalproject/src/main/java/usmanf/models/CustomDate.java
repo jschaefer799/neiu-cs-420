@@ -1,8 +1,6 @@
 package usmanf.models;
 
-
 import java.util.*;
-
 
 
 public class CustomDate {
@@ -11,8 +9,6 @@ public class CustomDate {
     private int nacisCode;
     private String industryName;
     private int totalJobs;
-    private int count = 0;
-    private String [][] finalArray = new String[60][4];
 
     public CustomDate(String industryName, int totalJobs, int year, int nacisCode){
         this.year = year;

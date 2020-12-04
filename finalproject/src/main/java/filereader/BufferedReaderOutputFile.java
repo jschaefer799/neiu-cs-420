@@ -12,18 +12,17 @@ import java.util.List;
 public class BufferedReaderOutputFile {
 
     private List<CustomDate> dates;
-    private final int LINE_SIZE = 10;
 
     public BufferedReaderOutputFile() {
         this.dates = new ArrayList<>();
-
     }
 
     public void bufferedReaderOutput(Path path) throws IOException {
-        String [] data = new String[LINE_SIZE];
+        String [] data;
         String temp = "[\"]";
         String tempData = "";
         FileReader fileReader = new FileReader(String.valueOf(path));
+
         final BufferedReader bufferedReader = new BufferedReader(fileReader);
 
         while ((tempData = bufferedReader.readLine()) != null) {
@@ -33,6 +32,13 @@ public class BufferedReaderOutputFile {
 
         bufferedReader.close();
         fileReader.close();
+
+        //Wasn't able to find the time/energy to rework the two BufferedReader loops.
+        //        Stream<String> lines = Files.lines(path);
+//        lines.map(line -> line.split(temp))
+//                .forEach(array -> dates.add(new CustomDate(array[1], Integer.parseInt(array[3]),
+//                        Integer.parseInt(array[5]),
+//                        Integer.parseInt(array[7]))));
     }
 
     public Path getOutputPath () throws URISyntaxException {

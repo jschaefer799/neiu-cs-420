@@ -4,9 +4,7 @@ import java.util.*;
 
 public class TotalJobsUtil {
 
-    private TotalJobsUtil(){
-
-    }
+    private TotalJobsUtil(){}
 
     public static Map<TotalJobs, List<CustomDate>> getDateMap(List<CustomDate> dates){
         Map<TotalJobs, List<CustomDate>> grouped = new HashMap<>();

@@ -5,13 +5,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-
 public class Writer {
 
-
-    public Writer() {
-
-    }
+    public Writer() {}
 
     public void writer(String[] output) throws IOException, URISyntaxException {
 
@@ -23,8 +19,7 @@ public class Writer {
         path += File.separator + "output.txt";
         FileWriter APIWriter = new FileWriter(path);
 
-        for (int i = 0; i < output.length; i++)
-            APIWriter.write(output[i] + "\n");
+        for (String s : output) APIWriter.write(s + "\n");
         APIWriter.close();
     }
 }
