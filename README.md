@@ -1,23 +1,24 @@
-**Chosen Dataset: Data USA**
+**Chosen Dataset: United States Census Bureau Annual Survey of Manufactures (Time Series 2002-2016) API**
 
-**Application Name: U.S. Manufacturing Decline**
+**Application Name: U.S. Manufacturing Job Rates 2002-2016**
 
 **Project Topic/Objective**
 
-According to the Brookings Institute (Baily and Bosworth 2014), millions of jobs have been lost in the United States manufacturing
-industry since the 1980s. Today, most consumer products are produced outside of the U.S. Skilled and unskilled manufacturing jobs
-have largely been replaced with low-wage service industry work.
+According to the Brookings Institute (Baily and Bosworth 2014), millions of jobs have been lost in the United 
+States manufacturing industry since the 1980s. Today, most consumer products are produced outside of the United States. 
+Skilled and unskilled manufacturing jobs have largely been replaced with low-wage service industry work.The purpose of 
+using this Census API dataset is to look at how the United States manufacturing industry has changed over time. 
 
-This application aims to analyze data from the DATA USA API in order to explore the possible economic and societal ripple 
-effects the U.S. has experienced during this same time period.
+This application aims to analyze data from the U.S. Census Bureau in order to explore the specific sub-sectors that fall 
+within the manufacturing industry that have been impacted the most by a loss of jobs.
 
-More specifically, this application is driven by the following core questions:
+More specifically, this application is driven by the following questions:
 
-- Did U.S. wages decrease or remain stagnant (when adjusted for inflation) during this time?
-- Have crime rates increased?
-How have social metrics changed over time, like consumer debit, home ownership and so on?
-- In parts of the country that were hit especially hard by the manufacturing industry decline, are 
-the above areas of impact more severe?
+Which sub-sectors experienced the highest decrease in total jobs over the course of the dataset range (2002-2016)?
+
+Which sub-sectors, if any, experienced increases in total jobs over the course of the dataset range?
+
+Did the sub-sectors experience similar trends or patterns?
 
 **Motivation**
 
@@ -25,7 +26,11 @@ A significant decline in good paying jobs, such as the disappearing of the manuf
 and federal economies. The ripple effect, which can be more accurately described as a tidal wave, of this type of economic shift 
 can be seen far beyond consumerism, in areas such as crime, healthcare access, housing, education and much more.
 
-Working hands-on with this data from the ground up will provide me with a better understanding of the depth of the ripple effect.
+Creating an application that can show when and which jobs declined will give me the ability to pair
+this data with other socioeconomic indicators to build a robust portrayal of the impact that losing thousands of high paying jobs 
+has had on middle income and low income families. Data points such as, wages, consumer debit, home ownership, crime and countless 
+more, can be combined with the U.S. manufacturing data in a graphical way that shows similar (or different) trends or patterns. The 
+additional data can easily be harvested from different APIs. 
 
 **References:**
 
